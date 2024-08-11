@@ -43,9 +43,8 @@ class ActionViewController: NSViewController {
             } else if attachments.isEmpty {
                 logger.info("There are no atachments on this item")
             } else {
-                let attachment = sharedItem.attachments![0]
-                attachment.loadInPlaceFileRepresentation(forTypeIdentifier: "Empty.txt") { url, loaded, error in
-                    if let error {
+                attachments[0].loadInPlaceFileRepresentation(forTypeIdentifier: "com.adobe.pdf") { url, loaded, error in
+                    if error != nil {
                         logger.error("Error appeared")
                         return
                     }
